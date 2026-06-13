@@ -1,0 +1,68 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: ISS Location API (Open Notify)
+providerId: iss-api
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Space
+  - ISS
+  - Free
+  - Public API
+  - Open Source
+description: >-
+  The Open Notify ISS API is a free, open-source service with a single access
+  tier. There is no paid plan, no API key requirement, and no registration
+  process. Usage is subject to the provider's informal fair-use expectations;
+  no formal SLA or support contract is offered.
+plans:
+  - id: iss-api-free
+    name: Free
+    type: free
+    description: >-
+      Unrestricted public access to the ISS Current Location and People in Space
+      endpoints. No API key, account, or registration is required. The service
+      is community-funded and open-source; uptime is best-effort with no
+      formal SLA.
+    entries:
+      - label: API Requests
+        description: >-
+          No hard monthly quota is documented. Requests are unauthenticated and
+          the service is open to the public. Polite, non-abusive use is expected.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - http://api.open-notify.org
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: >-
+          No formal rate limit is published. The service is built for
+          interactive and lightweight integrations; sustained high-frequency
+          polling is discouraged.
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: -1
+        timeFrame: second
+        geo: global
+        domains:
+          - http://api.open-notify.org
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: ISS Current Location Endpoint (GET /iss-now.json)
+      - name: People in Space Endpoint (GET /astros.json)
+      - name: JSON response format
+      - name: No authentication required
+      - name: Community GitHub support
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

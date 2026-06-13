@@ -1,0 +1,77 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: ISS Location API (Open Notify)
+providerId: iss-api
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Space
+  - ISS
+  - Public API
+  - Open Source
+  - Rate Limiting
+description: >-
+  The Open Notify ISS API does not publish formal rate limit thresholds. The
+  service is unauthenticated and free. No Retry-After, X-RateLimit-*, or
+  RateLimit-Policy headers are documented. Best practice is to poll the
+  location endpoint no more frequently than once every five seconds (the
+  server-side refresh interval) and to cache responses client-side to reduce
+  unnecessary load on the community-operated infrastructure.
+headers:
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+responseCodes:
+  throttled: 429
+  quotaExceeded: null
+  serviceUnavailable: 503
+limits:
+  - tier: free
+    name: ISS Location Polling Cadence
+    scope: ip
+    metric: requests_per_second
+    limit: 1
+    burst: null
+    timeFrame: second
+    notes: >-
+      The ISS position data updates approximately every five seconds on the
+      server. Polling more frequently than once per second provides no
+      additional precision and increases load on the shared service.
+    applies:
+      - GET /iss-now.json
+      - GET /iss-now/
+      - GET /iss-now/v1/
+  - tier: free
+    name: People in Space Polling Cadence
+    scope: ip
+    metric: requests_per_minute
+    limit: 12
+    burst: null
+    timeFrame: minute
+    notes: >-
+      Crew roster data changes rarely (crew rotations happen every few months).
+      Polling more than a few times per hour is unnecessary for most use cases.
+    applies:
+      - GET /astros.json
+policies:
+  - name: Fair Use
+    description: >-
+      The service is community-operated and funded voluntarily. Callers should
+      implement client-side caching, avoid tight polling loops, and be good
+      citizens of a shared public resource.
+  - name: Backoff Strategy
+    description: >-
+      If the server returns a 429 or 503, implement exponential backoff before
+      retrying. No Retry-After header is documented, so begin with a 5-second
+      wait and double on each subsequent failure.
+  - name: Caching
+    description: >-
+      Cache ISS position responses for at least five seconds (the server
+      refresh interval) and astronaut roster responses for at least one hour
+      to minimize unnecessary traffic.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
