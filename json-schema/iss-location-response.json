@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/iss-api/main/json-schema/iss-location-response.json",
+  "title": "ISS Location Response",
+  "description": "Response schema for the ISS current location endpoint (/iss-now.json)",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "Operation status indicator",
+      "example": "success"
+    },
+    "timestamp": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds since epoch) when the location data was captured"
+    },
+    "iss_position": {
+      "type": "object",
+      "description": "Earth position coordinates directly beneath the ISS",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "description": "Latitude coordinate in decimal degrees",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Longitude coordinate in decimal degrees",
+          "minimum": -180,
+          "maximum": 180
+        }
+      },
+      "required": ["latitude", "longitude"]
+    }
+  },
+  "required": ["message", "timestamp", "iss_position"]
+}

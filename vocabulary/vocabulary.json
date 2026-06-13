@@ -1,0 +1,64 @@
+{
+  "vocabulary": [
+    {
+      "term": "ISS",
+      "definition": "International Space Station — a modular space station in low Earth orbit, operated as a joint project between NASA, Roscosmos, ESA, JAXA, and CSA.",
+      "related": ["International Space Station", "orbital outpost", "low Earth orbit"]
+    },
+    {
+      "term": "iss_position",
+      "definition": "An object containing the current latitude and longitude of the point on Earth directly beneath the International Space Station.",
+      "related": ["latitude", "longitude", "geolocation"]
+    },
+    {
+      "term": "latitude",
+      "definition": "The angular distance of a point north or south of the equator, expressed in decimal degrees. Ranges from -90 (South Pole) to 90 (North Pole).",
+      "related": ["longitude", "coordinates", "geolocation"]
+    },
+    {
+      "term": "longitude",
+      "definition": "The angular distance of a point east or west of the prime meridian, expressed in decimal degrees. Ranges from -180 to 180.",
+      "related": ["latitude", "coordinates", "geolocation"]
+    },
+    {
+      "term": "timestamp",
+      "definition": "A Unix timestamp (seconds elapsed since January 1, 1970 UTC) indicating the moment when the ISS location data was recorded.",
+      "related": ["Unix time", "epoch", "real-time"]
+    },
+    {
+      "term": "astros",
+      "definition": "Abbreviation used in the Open Notify API for astronauts — humans currently in space across all crewed spacecraft.",
+      "related": ["astronaut", "cosmonaut", "crew", "people in space"]
+    },
+    {
+      "term": "craft",
+      "definition": "The name of the spacecraft or space station a crew member is currently aboard (e.g., ISS, Shenzhou).",
+      "related": ["spacecraft", "space station", "ISS"]
+    },
+    {
+      "term": "number",
+      "definition": "In the astronauts response, the total count of humans currently in space across all spacecraft.",
+      "related": ["count", "crew size", "people in space"]
+    },
+    {
+      "term": "message",
+      "definition": "A status string returned in every Open Notify API response, typically 'success' when the request completes without error.",
+      "related": ["status", "response code"]
+    },
+    {
+      "term": "Open Notify",
+      "definition": "An open-source project by Nathan Bergey that provides simple REST API access to real-time NASA and ISS data without registration or authentication.",
+      "related": ["ISS", "NASA", "public API", "open data"]
+    },
+    {
+      "term": "low Earth orbit",
+      "definition": "An orbit around Earth with an altitude typically between 160 and 2,000 km. The ISS orbits at approximately 400 km altitude.",
+      "related": ["ISS", "orbital altitude", "LEO"]
+    },
+    {
+      "term": "jsonp",
+      "definition": "JSON with Padding — a technique for cross-domain data requests. Open Notify supports JSONP via a callback query parameter.",
+      "related": ["JSON", "callback", "cross-origin"]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/iss-api/main/json-schema/astronauts-response.json",
+  "title": "Astronauts Response",
+  "description": "Response schema for the people in space endpoint (/astros.json)",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "Operation status indicator",
+      "example": "success"
+    },
+    "number": {
+      "type": "integer",
+      "description": "Total count of humans currently in space across all spacecraft",
+      "minimum": 0
+    },
+    "people": {
+      "type": "array",
+      "description": "Array of crew members currently in space",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Full name of the person in space"
+          },
+          "craft": {
+            "type": "string",
+            "description": "Name of the spacecraft or station the person is aboard"
+          }
+        },
+        "required": ["name", "craft"]
+      }
+    }
+  },
+  "required": ["message", "number", "people"]
+}
