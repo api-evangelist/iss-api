@@ -12,7 +12,7 @@ description: >-
   are unauthenticated, return JSON, and are free to use without registration.
   The ISS pass-time prediction endpoint has been retired; the location and
   astronaut endpoints remain live and operational.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Space
   - ISS
@@ -37,7 +37,7 @@ apis:
       recorded. No parameters are required. The data is refreshed approximately
       every five seconds as the ISS orbits Earth at roughly 28,000 km/h and
       at an altitude of approximately 400 km.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
     baseURL: http://api.open-notify.org
     tags:
@@ -64,7 +64,7 @@ apis:
       space and an array of crew member objects, each with the person's name
       and the spacecraft they are aboard. Covers all crewed spacecraft, not
       only the ISS. Requires no parameters or authentication.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: http://open-notify.org/Open-Notify-API/People-In-Space/
     baseURL: http://api.open-notify.org
     tags:
