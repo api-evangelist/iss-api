@@ -82,6 +82,8 @@ apis:
       - FN: Open Notify
         url: http://open-notify.org/
 common:
+  - type: DomainSecurity
+    url: security/iss-api-domain-security.yml
   - type: Website
     url: http://open-notify.org/
   - type: Documentation

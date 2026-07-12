@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: open-notify.org
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch,
+    certificate is not valid for ''open-notify'
+  hsts: null
+- host: api.open-notify.org
+  https: false
+domains:
+- domain: open-notify.org
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
