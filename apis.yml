@@ -82,6 +82,8 @@ apis:
       - FN: Open Notify
         url: http://open-notify.org/
 common:
+  - type: AgenticAccess
+    url: agentic-access/iss-api-agentic-access.yml
   - type: DomainSecurity
     url: security/iss-api-domain-security.yml
   - type: Website
