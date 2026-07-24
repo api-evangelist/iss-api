@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: API (Open Notify) Astronauts ISS Location API
+  description: Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.
+  version: '1.0'
+  contact:
+    name: Open Notify
+    url: http://open-notify.org/
+  license:
+    name: MIT
+    url: https://github.com/open-notify/Open-Notify-API/blob/master/LICENSE
+servers:
+- url: http://api.open-notify.org
+  description: Open Notify production server
+tags:
+- name: ISS Location
+  description: Endpoints for retrieving the current position of the International Space Station
+paths:
+  /iss-now.json:
+    get:
+      operationId: getISSLocationNow
+      summary: Get Current ISS Location
+      description: Returns the current latitude and longitude of the International Space Station along with a Unix timestamp indicating when the coordinates were recorded. No parameters are required. The data is refreshed approximately every five seconds as the ISS orbits Earth at roughly 28,000 km/h and at an altitude of approximately 400 km.
+      tags:
+      - ISS Location
+      responses:
+        '200':
+          description: Current ISS location successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ISSLocationResponse'
+              example:
+                iss_position:
+                  latitude: -19.783929798887073
+                  longitude: -72.29753187401747
+                message: success
+                timestamp: 1454357342
+  /iss-now/v1/:
+    get:
+      operationId: getISSLocationNowV1
+      summary: Get Current ISS Location (v1)
+      description: Alternate versioned route for the ISS current location endpoint. Returns the current latitude and longitude of the International Space Station along with a Unix timestamp.
+      tags:
+      - ISS Location
+      responses:
+        '200':
+          description: Current ISS location successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ISSLocationResponse'
+              example:
+                iss_position:
+                  latitude: -19.783929798887073
+                  longitude: -72.29753187401747
+                message: success
+                timestamp: 1454357342
+components:
+  schemas:
+    ISSPosition:
+      type: object
+      description: Earth position coordinates directly beneath the ISS
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude coordinate in decimal degrees
+          minimum: -90
+          maximum: 90
+          example: -19.783929798887073
+        longitude:
+          type: number
+          format: double
+          description: Longitude coordinate in decimal degrees
+          minimum: -180
+          maximum: 180
+          example: -72.29753187401747
+      required:
+      - latitude
+      - longitude
+    ISSLocationResponse:
+      type: object
+      description: Response from the ISS current location endpoint
+      properties:
+        message:
+          type: string
+          description: Operation status indicator
+          example: success
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix timestamp (seconds since epoch) when the location data was captured
+          example: 1454357342
+        iss_position:
+          $ref: '#/components/schemas/ISSPosition'
+      required:
+      - message
+      - timestamp
+      - iss_position
+externalDocs:
+  description: Open Notify API Documentation
+  url: http://open-notify.org/Open-Notify-API/

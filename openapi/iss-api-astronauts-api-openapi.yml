@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: ISS Location API (Open Notify) Astronauts API
+  description: Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.
+  version: '1.0'
+  contact:
+    name: Open Notify
+    url: http://open-notify.org/
+  license:
+    name: MIT
+    url: https://github.com/open-notify/Open-Notify-API/blob/master/LICENSE
+servers:
+- url: http://api.open-notify.org
+  description: Open Notify production server
+tags:
+- name: Astronauts
+  description: Endpoints for retrieving information about humans currently in space
+paths:
+  /astros.json:
+    get:
+      operationId: getPeopleInSpace
+      summary: Get People in Space Right Now
+      description: Returns a JSON object containing the total count of humans currently in space and an array of crew member objects, each with the person's name and the spacecraft they are aboard. Covers all crewed spacecraft, not only the ISS. Requires no parameters or authentication.
+      tags:
+      - Astronauts
+      responses:
+        '200':
+          description: List of people currently in space
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AstronautsResponse'
+              example:
+                message: success
+                number: 3
+                people:
+                - name: Oleg Kononenko
+                  craft: ISS
+                - name: Nikolai Chub
+                  craft: ISS
+                - name: Tracy Caldwell Dyson
+                  craft: ISS
+  /astros/v1/:
+    get:
+      operationId: getPeopleInSpaceV1
+      summary: Get People in Space Right Now (v1)
+      description: Alternate versioned route for the people in space endpoint. Returns a JSON object containing the total count of humans currently in space and an array of crew member objects.
+      tags:
+      - Astronauts
+      responses:
+        '200':
+          description: List of people currently in space
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AstronautsResponse'
+components:
+  schemas:
+    AstronautsResponse:
+      type: object
+      description: Response from the people in space endpoint
+      properties:
+        message:
+          type: string
+          description: Operation status indicator
+          example: success
+        number:
+          type: integer
+          description: Total count of humans currently in space across all spacecraft
+          example: 3
+        people:
+          type: array
+          description: Array of crew members currently in space
+          items:
+            $ref: '#/components/schemas/Astronaut'
+      required:
+      - message
+      - number
+      - people
+    Astronaut:
+      type: object
+      description: A person currently in space
+      properties:
+        name:
+          type: string
+          description: Full name of the person in space
+          example: Oleg Kononenko
+        craft:
+          type: string
+          description: Name of the spacecraft or station the person is aboard
+          example: ISS
+      required:
+      - name
+      - craft
+externalDocs:
+  description: Open Notify API Documentation
+  url: http://open-notify.org/Open-Notify-API/
