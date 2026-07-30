@@ -12,7 +12,19 @@ description: >-
   are unauthenticated, return JSON, and are free to use without registration.
   The ISS pass-time prediction endpoint has been retired; the location and
   astronaut endpoints remain live and operational.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/iss-api.png
 tags:
   - Space
   - ISS
@@ -29,58 +41,57 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.19'
 apis:
-  - aid: iss-api:iss-location-now
-    name: ISS Current Location
-    description: >-
-      Returns the current latitude and longitude of the International Space
-      Station along with a Unix timestamp indicating when the coordinates were
-      recorded. No parameters are required. The data is refreshed approximately
-      every five seconds as the ISS orbits Earth at roughly 28,000 km/h and
-      at an altitude of approximately 400 km.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
-    baseURL: http://api.open-notify.org
-    tags:
-      - ISS
-      - Location
-      - Latitude
-      - Longitude
-      - Real-Time
-      - Geolocation
-    properties:
-      - type: Documentation
-        url: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
-      - type: OpenAPI
-        url: https://open-notify-api.readthedocs.io/en/latest/iss_location.html
-      - type: GitHubRepository
-        url: https://github.com/open-notify/Open-Notify-API
-    contact:
-      - FN: Open Notify
-        url: http://open-notify.org/
-  - aid: iss-api:astronauts-in-space
-    name: People in Space Right Now
-    description: >-
-      Returns a JSON object containing the total count of humans currently in
-      space and an array of crew member objects, each with the person's name
-      and the spacecraft they are aboard. Covers all crewed spacecraft, not
-      only the ISS. Requires no parameters or authentication.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: http://open-notify.org/Open-Notify-API/People-In-Space/
-    baseURL: http://api.open-notify.org
-    tags:
-      - Astronauts
-      - Crew
-      - People in Space
-      - ISS
-      - Real-Time
-    properties:
-      - type: Documentation
-        url: http://open-notify.org/Open-Notify-API/People-In-Space/
-      - type: GitHubRepository
-        url: https://github.com/open-notify/Open-Notify-API
-    contact:
-      - FN: Open Notify
-        url: http://open-notify.org/
+- aid: iss-api:astronauts-in-space
+  name: People in Space Right Now
+  description: >-
+    Returns a JSON object containing the total count of humans currently in space and an array of crew
+    member objects, each with the person's name and the spacecraft they are aboard. Covers all crewed
+    spacecraft, not only the ISS. Requires no parameters or authentication.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: http://open-notify.org/Open-Notify-API/People-In-Space/
+  baseURL: http://api.open-notify.org
+  tags:
+  - Astronauts
+  - Crew
+  - People in Space
+  - ISS
+  - Real-Time
+  properties:
+  - type: Documentation
+    url: http://open-notify.org/Open-Notify-API/People-In-Space/
+  - type: GitHubRepository
+    url: https://github.com/open-notify/Open-Notify-API
+  contact:
+  - FN: Open Notify
+    url: http://open-notify.org/
+- aid: iss-api:iss-api-astronauts-api
+  name: ISS Location API (Open Notify) Astronauts API
+  description: Endpoints for retrieving information about humans currently in space
+  humanURL: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+  baseURL: http://api.open-notify.org
+  tags:
+  - Astronauts
+  properties:
+  - type: OpenAPI
+    url: openapi/iss-api-astronauts-api-openapi.yml
+  - type: Documentation
+    url: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+  - type: GitHubRepository
+    url: https://github.com/open-notify/Open-Notify-API
+- aid: iss-api:iss-api-iss-location-api
+  name: ISS Location API (Open Notify) ISS Location API
+  description: Endpoints for retrieving the current position of the International Space Station
+  humanURL: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+  baseURL: http://api.open-notify.org
+  tags:
+  - ISS Location
+  properties:
+  - type: OpenAPI
+    url: openapi/iss-api-iss-location-api-openapi.yml
+  - type: Documentation
+    url: http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+  - type: GitHubRepository
+    url: https://github.com/open-notify/Open-Notify-API
 common:
   - type: AgenticAccess
     url: agentic-access/iss-api-agentic-access.yml
