@@ -1,0 +1,16 @@
+{
+  "provider": "iss-api",
+  "sources": [
+    "iss-api-astronauts-api-openapi.yml",
+    "iss-api-iss-location-api-openapi.yml"
+  ],
+  "outputs": [
+    "iss-api-astronauts-api-openapi.yml",
+    "iss-api-iss-location-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
