@@ -93,6 +93,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/open-notify/Open-Notify-API
 common:
+  - type: IssueTracker
+    url: https://github.com/open-notify/Open-Notify-API/issues
   - type: AgenticAccess
     url: agentic-access/iss-api-agentic-access.yml
   - type: DomainSecurity
