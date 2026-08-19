@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ISS Location API (Open Notify) Astronauts API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Astronauts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get People in Space Right Now",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.open-notify.org/astros.json"
+          },
+          "docs": "Returns a JSON object containing the total count of humans currently in space and an array of crew member objects, each with the person's name and the spacecraft they are aboard. Covers all crewed spacecraft, not only the ISS. Requires no parameters or authentication."
+        },
+        {
+          "info": {
+            "name": "Get People in Space Right Now (v1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.open-notify.org/astros/v1/"
+          },
+          "docs": "Alternate versioned route for the people in space endpoint. Returns a JSON object containing the total count of humans currently in space and an array of crew member objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

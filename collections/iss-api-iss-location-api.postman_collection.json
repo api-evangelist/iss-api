@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "26fe8830-9c7c-4209-af88-65440ecae45b",
+      "name": "ISS Location",
+      "description": {
+        "content": "Endpoints for retrieving the current position of the International Space Station",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38c2b77c-10ec-4d1c-a7ba-a3db666b63f7",
+          "name": "Get Current ISS Location",
+          "request": {
+            "name": "Get Current ISS Location",
+            "description": {
+              "content": "Returns the current latitude and longitude of the International Space Station along with a Unix timestamp indicating when the coordinates were recorded. No parameters are required. The data is refreshed approximately every five seconds as the ISS orbits Earth at roughly 28,000 km/h and at an altitude of approximately 400 km.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "iss-now.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "caaae798-f7ac-4f6b-b97b-7b2a72bdefd5",
+              "name": "Current ISS location successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "iss-now.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"iss_position\": {\n    \"latitude\": -19.783929798887073,\n    \"longitude\": -72.29753187401747\n  },\n  \"message\": \"success\",\n  \"timestamp\": 1454357342\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "273d6fc3-494c-459d-b981-140bbf13586e",
+          "name": "Get Current ISS Location (v1)",
+          "request": {
+            "name": "Get Current ISS Location (v1)",
+            "description": {
+              "content": "Alternate versioned route for the ISS current location endpoint. Returns the current latitude and longitude of the International Space Station along with a Unix timestamp.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "iss-now",
+                "v1",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22d2b36f-d0ab-4bf0-830e-8c488dd48e49",
+              "name": "Current ISS location successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "iss-now",
+                    "v1",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"iss_position\": {\n    \"latitude\": -19.783929798887073,\n    \"longitude\": -72.29753187401747\n  },\n  \"message\": \"success\",\n  \"timestamp\": 1454357342\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://api.open-notify.org",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0d13f8c5-0452-4891-a827-644ac31cf553",
+    "name": "API (Open Notify) Astronauts ISS Location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.\n\nContact Support:\n Name: Open Notify",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "ff81f04f-45cf-404a-9e97-b495fddcf28a",
+      "name": "Astronauts",
+      "description": {
+        "content": "Endpoints for retrieving information about humans currently in space",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60a53e2b-6929-472a-8e94-e898ed764176",
+          "name": "Get People in Space Right Now",
+          "request": {
+            "name": "Get People in Space Right Now",
+            "description": {
+              "content": "Returns a JSON object containing the total count of humans currently in space and an array of crew member objects, each with the person's name and the spacecraft they are aboard. Covers all crewed spacecraft, not only the ISS. Requires no parameters or authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "astros.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b1b3982-d7fb-4862-ac20-bc7003d1a0b0",
+              "name": "List of people currently in space",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "astros.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"number\": 3,\n  \"people\": [\n    {\n      \"name\": \"Oleg Kononenko\",\n      \"craft\": \"ISS\"\n    },\n    {\n      \"name\": \"Nikolai Chub\",\n      \"craft\": \"ISS\"\n    },\n    {\n      \"name\": \"Tracy Caldwell Dyson\",\n      \"craft\": \"ISS\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "131fc65c-a49a-4528-9b90-aa8c1efe87fb",
+          "name": "Get People in Space Right Now (v1)",
+          "request": {
+            "name": "Get People in Space Right Now (v1)",
+            "description": {
+              "content": "Alternate versioned route for the people in space endpoint. Returns a JSON object containing the total count of humans currently in space and an array of crew member objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "astros",
+                "v1",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56944aca-38d8-4b69-8783-0a559c3cb1eb",
+              "name": "List of people currently in space",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "astros",
+                    "v1",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"number\": 3,\n  \"people\": [\n    {\n      \"name\": \"Oleg Kononenko\",\n      \"craft\": \"ISS\"\n    },\n    {\n      \"name\": \"Oleg Kononenko\",\n      \"craft\": \"ISS\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://api.open-notify.org",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6a2688ec-69b4-4b57-b963-112dbaa6143c",
+    "name": "ISS Location API (Open Notify) Astronauts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.\n\nContact Support:\n Name: Open Notify",
+      "type": "text/plain"
+    }
+  }
+}

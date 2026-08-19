@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API (Open Notify) Astronauts ISS Location API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ISS Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Current ISS Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.open-notify.org/iss-now.json"
+          },
+          "docs": "Returns the current latitude and longitude of the International Space Station along with a Unix timestamp indicating when the coordinates were recorded. No parameters are required. The data is refreshed approximately every five seconds as the ISS orbits Earth at roughly 28,000 km/h and at an altitude of approximately 400 km."
+        },
+        {
+          "info": {
+            "name": "Get Current ISS Location (v1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.open-notify.org/iss-now/v1/"
+          },
+          "docs": "Alternate versioned route for the ISS current location endpoint. Returns the current latitude and longitude of the International Space Station along with a Unix timestamp."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
