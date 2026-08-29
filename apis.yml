@@ -12,6 +12,18 @@ description: >-
   are unauthenticated, return JSON, and are free to use without registration.
   The ISS pass-time prediction endpoint has been retired; the location and
   astronaut endpoints remain live and operational.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: open
