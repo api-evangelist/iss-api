@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: ISS Location API (Open Notify) Astronauts API
-  description: Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.
+  description: Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints.
   version: '1.0'
   contact:
     name: Open Notify
@@ -56,6 +56,21 @@ paths:
                 $ref: '#/components/schemas/AstronautsResponse'
 components:
   schemas:
+    Astronaut:
+      type: object
+      description: A person currently in space
+      properties:
+        name:
+          type: string
+          description: Full name of the person in space
+          example: Oleg Kononenko
+        craft:
+          type: string
+          description: Name of the spacecraft or station the person is aboard
+          example: ISS
+      required:
+      - name
+      - craft
     AstronautsResponse:
       type: object
       description: Response from the people in space endpoint
@@ -77,21 +92,6 @@ components:
       - message
       - number
       - people
-    Astronaut:
-      type: object
-      description: A person currently in space
-      properties:
-        name:
-          type: string
-          description: Full name of the person in space
-          example: Oleg Kononenko
-        craft:
-          type: string
-          description: Name of the spacecraft or station the person is aboard
-          example: ISS
-      required:
-      - name
-      - craft
 externalDocs:
   description: Open Notify API Documentation
   url: http://open-notify.org/Open-Notify-API/
