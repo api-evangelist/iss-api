@@ -58,6 +58,25 @@ paths:
                 timestamp: 1454357342
 components:
   schemas:
+    ISSLocationResponse:
+      type: object
+      description: Response from the ISS current location endpoint
+      properties:
+        message:
+          type: string
+          description: Operation status indicator
+          example: success
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix timestamp (seconds since epoch) when the location data was captured
+          example: 1454357342
+        iss_position:
+          $ref: '#/components/schemas/ISSPosition'
+      required:
+      - message
+      - timestamp
+      - iss_position
     ISSPosition:
       type: object
       description: Earth position coordinates directly beneath the ISS
@@ -79,25 +98,6 @@ components:
       required:
       - latitude
       - longitude
-    ISSLocationResponse:
-      type: object
-      description: Response from the ISS current location endpoint
-      properties:
-        message:
-          type: string
-          description: Operation status indicator
-          example: success
-        timestamp:
-          type: integer
-          format: int64
-          description: Unix timestamp (seconds since epoch) when the location data was captured
-          example: 1454357342
-        iss_position:
-          $ref: '#/components/schemas/ISSPosition'
-      required:
-      - message
-      - timestamp
-      - iss_position
 externalDocs:
   description: Open Notify API Documentation
   url: http://open-notify.org/Open-Notify-API/
