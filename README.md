@@ -64,34 +64,144 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-APIs.json 0.19 provider profile for the Open Notify ISS API — a free, open-source REST service that exposes real-time International Space Station data.
+Open Notify is a free, open-source project by Nathan Bergey that exposes real-time NASA and ISS data as simple REST endpoints. The service provides the current latitude and longitude of the International Space Station (updated every five seconds as the ISS travels at roughly 28,000 km/h), a count and roster of all humans currently in space across all spacecraft, and historical ISS pass-time predictions for any point on Earth. All endpoints are unauthenticated, return JSON, and are free to use without registration. The ISS pass-time prediction endpoint has been retired; the location and astronaut endpoints remain live and operational.
 
-## APIs Cataloged
+**Areas:** Space · ISS · International Space Station · NASA · Location · Geolocation · Astronauts · Real-Time · Open Source · Public APIs · Free
 
-| API | Base URL | Description |
-|-----|----------|-------------|
-| ISS Current Location | `http://api.open-notify.org/iss-now.json` | Real-time ISS latitude and longitude with Unix timestamp |
-| People in Space | `http://api.open-notify.org/astros.json` | Count and roster of all humans currently in space |
+## ISS Location API (Open Notify) on APIs.io
 
-## Key Facts
+Everything profiled for ISS Location API (Open Notify) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/iss-api/](https://apis.io/providers/iss-api/)** — or go straight to one of the APIs or properties below.
 
-- **Authentication**: None required
-- **Pricing**: Free, no registration needed
-- **License**: Source code under GPL-3.0-or-later; documentation under CC BY 3.0
-- **Source**: [github.com/open-notify/Open-Notify-API](https://github.com/open-notify/Open-Notify-API)
-- **Maintainer**: Nathan Bergey / Open Notify
+### APIs (3)
 
-## Files
+- [People in Space Right Now](https://apis.io/apis/iss-api/astronauts-in-space/) — Returns a JSON object containing the total count of humans currently in space and an array of crew member objects, each with the person's name and the…
+- [ISS Location API (Open Notify) Astronauts API](https://apis.io/apis/iss-api/iss-api-astronauts-api/) — Endpoints for retrieving information about humans currently in space
+- [ISS Location API (Open Notify) ISS Location API](https://apis.io/apis/iss-api/iss-api-iss-location-api/) — Endpoints for retrieving the current position of the International Space Station
 
-```
-apis.yml                          # APIs.json 0.19 provider manifest
-plans/iss-api-plans.yml           # API Commons Plans — single free tier
-rate-limits/iss-api-rate-limits.yml  # API Commons Rate Limits — best-practice guidance
-finops/iss-api-finops.yml         # FOCUS-aligned FinOps profile (consumer-side cost only)
-```
+### Published properties
 
-## Notes
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The ISS pass-time prediction endpoint (`/iss-pass.json`) has been permanently retired. Only the location and astronaut endpoints remain active.
+#### Agentic access (1)
 
-Because the service is community-operated with no SLA, production workloads should implement client-side caching (minimum 5-second TTL for position data, 1-hour TTL for crew data) and consider self-hosting the open-source code for reliability-critical applications.
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Iss Api Agentic Access](https://apis.io/agentic-access/iss-api/iss-api-agentic-access/)
+
+#### JSON Schema (2)
+
+The data models the API reads and writes.
+
+- [Astronauts Response](https://apis.io/schemas/iss-api/astronauts-response/)
+- [ISS Location Response](https://apis.io/schemas/iss-api/iss-location-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [context Context](https://apis.io/jsonld/iss-api/context/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Astronauts Response](https://apis.io/examples/iss-api/astronauts-response/)
+- [Iss Location Response](https://apis.io/examples/iss-api/iss-location-response/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [ISS Location API (Open Notify) Astronauts API](https://apis.io/collections/iss-api/open-iss-api-astronauts-api/)
+- [API (Open Notify) Astronauts ISS Location API](https://apis.io/collections/iss-api/open-iss-api-iss-location-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [ISS Location API (Open Notify) — jsonschema rules](https://apis.io/rules/iss-api/iss-api-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Iss Api Domain Security](https://apis.io/security/iss-api/iss-api-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Iss Api Plans](https://apis.io/plans/iss-api/iss-api-plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Iss Api Rate Limits](https://apis.io/rate-limits/iss-api/iss-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Iss Api Finops](https://apis.io/finops/iss-api/iss-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](http://open-notify.org/)
+- [Documentation](http://open-notify.org/Open-Notify-API/)
+- [GitHub](https://github.com/open-notify)
+
+## API Evangelist rating
+
+**Kin Score 23.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/iss-api/](https://apis.io/providers/iss-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ISS Location API (Open Notify): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/iss-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
